@@ -2,7 +2,7 @@
 
 Solve Pendulum-v0 challenge with genetic style evolution.
 
-![Pendulum-v0 Challenge](https://raw.githubusercontent.com/mediasia-labs/openai-gym-mountaincarcontinuous-v0/master/screenshot.png)
+![Pendulum-v0 Challenge](https://raw.githubusercontent.com/mediasia-labs/openai-gym-pendulum-v0/master/screenshot.png)
 
 ### Install
 
