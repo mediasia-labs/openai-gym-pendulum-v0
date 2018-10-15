@@ -31,7 +31,7 @@ class PendulumSolver:
 		# Exploration rate (mutations)
 		self.explorationRate = 0.75
 
-		self.iterations = 5
+		self.iterations = 10
 
 		# Generations
 		# ---
