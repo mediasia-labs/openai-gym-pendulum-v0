@@ -7,7 +7,7 @@ import copy
 
 Training Class
 --------------
-Solve MountainCarContinuous-v0 Gym Challenge with genetic evolutionary strategy
+Solve Pendulum-v0 Gym Challenge with genetic evolutionary strategy
 
 Inspired by:
 ------------
@@ -19,7 +19,7 @@ Inspired by:
 '''
 
 
-class MountainCarContinuousSolver:
+class PendulumSolver:
 
 	def __init__(self, generations=1000):
 		# Load MountainCar
@@ -277,5 +277,5 @@ class Individual:
 
 
 
-MountainCarContinuousSolver()
+PendulumSolver()
 
