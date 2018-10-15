@@ -88,7 +88,6 @@ class PendulumSolver:
 
 		# Loop through generations
 		for i in range(self.generations):
-			finished = 0.0
 			best = -10000
 
 			# Loop through individuals
@@ -115,16 +114,9 @@ class PendulumSolver:
 						# Remember state
 						current_state = new_state
 
-						# If game is solved before 200 steps
-						if done and step < 199:
-							finished += 1
-							episode_reward += 2 * self.iterations
-							break
-
 
 				# Set individual's reward
 				episode_reward /= self.iterations 
-				episode_reward -= 2 * self.iterations
 				individual.reward(episode_reward)
 
 				# Remember best score
@@ -133,13 +125,12 @@ class PendulumSolver:
 
 			# If average best score is above 90 for 100 iterations
 			# network is considered trained, and challenge passed
-			finished /= self.iterations
 			if best > -500:
 				self.rank()
-				print 'Generation', i + 1, 'Best score', self.population[0]._reward, 'Finished', finished
+				print 'Generation', i + 1, 'Best score', self.population[0]._reward
 				break
 
-			self.next_generation(i, finished)
+			self.next_generation(i)
 
 
 		# Training is finished
@@ -159,7 +150,7 @@ class PendulumSolver:
 					break
 
 
-	def next_generation(self, generation, finished):
+	def next_generation(self, generation):
 		# Rank individuals based on rewards
 		self.rank()
 
@@ -192,7 +183,7 @@ class PendulumSolver:
 					# Or with randomly generated new individuals (to keep exploring new possibilities)
 					self.population[i] = Individual(self.networkShape)
 
-		print 'Generation', generation + 1, 'Best score', self.population[0]._reward, 'Finished', finished
+		print 'Generation', generation + 1, 'Best score', self.population[0]._reward
 
 
 	def rank(self):
